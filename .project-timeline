@@ -11,3 +11,4 @@
 [feature/copytrade-hooks] Wire env-based config for API keys
 [feature/copytrade-hooks] Checkpoint: stabilize CI smoke test
 [feature/copytrade-hooks] Tighten REST client retry policy
+[feature/copytrade-hooks] Minor cleanup on path resolution
