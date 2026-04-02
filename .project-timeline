@@ -3,3 +3,8 @@
 [develop] Improve logging around quote failures
 [develop] Scaffold copy-trade listener module
 [develop] Tighten REST client retry policy
+[feature/risk-and-circuit-breakers] Track exposure per outcome key
+[feature/risk-and-circuit-breakers] Normalize decimal precision on prices
+[feature/risk-and-circuit-breakers] Improve logging around quote failures
+[feature/risk-and-circuit-breakers] Checkpoint: stabilize CI smoke test
+[feature/risk-and-circuit-breakers] Slice large order batches for latency
