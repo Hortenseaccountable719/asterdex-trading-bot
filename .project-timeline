@@ -8,3 +8,10 @@
 [feature/risk-and-circuit-breakers] Improve logging around quote failures
 [feature/risk-and-circuit-breakers] Checkpoint: stabilize CI smoke test
 [feature/risk-and-circuit-breakers] Slice large order batches for latency
+[feature/copytrade-hooks] Wire env-based config for API keys
+[feature/copytrade-hooks] Checkpoint: stabilize CI smoke test
+[feature/copytrade-hooks] Tighten REST client retry policy
+[feature/copytrade-hooks] Minor cleanup on path resolution
+[feature/copytrade-hooks] Tighten REST client retry policy
+[feature/copytrade-hooks] Debounce follower wallet updates
+[feature/copytrade-hooks] Track exposure per outcome key
