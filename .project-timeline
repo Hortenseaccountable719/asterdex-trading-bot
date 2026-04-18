@@ -14,3 +14,4 @@
 [feature/copytrade-hooks] Minor cleanup on path resolution
 [feature/copytrade-hooks] Tighten REST client retry policy
 [feature/copytrade-hooks] Debounce follower wallet updates
+[feature/copytrade-hooks] Track exposure per outcome key
